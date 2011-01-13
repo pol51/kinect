@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
   angle = new QSlider(Qt::Vertical, this);
   angle->setMinimum(-45);
   angle->setMaximum(45);
-  angle->setValue(10);
 
   view = new KinectView(this);
 
@@ -20,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
   MainLayout->addWidget(angle);
 
   connect(angle, SIGNAL(valueChanged(int)), this, SLOT(onAngle(int)));
+
+  angle->setValue(10);
 }
 
 void MainWindow::onAngle(int val)

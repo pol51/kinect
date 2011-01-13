@@ -62,7 +62,7 @@ void KinectView::paintGL()
   glEnable(GL_TEXTURE_2D);
 
   glBindTexture(GL_TEXTURE_2D, _texDepth);
-  glTexImage2D(GL_TEXTURE_2D, 0, 4, 640, 480, 0, GL_RGB, GL_UNSIGNED_BYTE, &depth[0]);
+  glTexImage2D(GL_TEXTURE_2D, 0, 4, 640, 480, 0, GL_RGBA, GL_UNSIGNED_BYTE, &depth[0]);
 
   glBegin(GL_TRIANGLE_FAN);
   glColor4f(255.0f, 255.0f, 255.0f, 255.0f);

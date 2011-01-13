@@ -1,5 +1,3 @@
-#include <QtCore/QObject>
-
 #include <QtCore/QVector>
 #include <QtCore/QMutex>
 
@@ -7,13 +5,14 @@
 
 #include <libfreenect.hpp>
 
-class FreenectDevice : public Freenect::FreenectDevice , QObject
+class FreenectDevice : public Freenect::FreenectDevice
 {
   public:
-    FreenectDevice(freenect_context *_ctx, int _index, QObject *parent = NULL);
+    FreenectDevice(freenect_context *_ctx, int _index);
+    virtual ~FreenectDevice() {}
 
-    void DepthCallback(void* _depth, uint32_t timestamp);
-    void VideoCallback(void*, uint32_t) {}
+    virtual void DepthCallback(void* _depth, uint32_t timestamp);
+    virtual void VideoCallback(void*, uint32_t) {}
 
     bool getDepth(QVector<uint8_t> &buffer);
 
